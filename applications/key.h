@@ -7,7 +7,7 @@
 
 
 #define     KEY_THREAD_STACK_SIZE   256
-#define     KEY_THREAD_PRIORITY     11
+#define     KEY_THREAD_PRIORITY     3
 #define     KEY_THREAD_TIMESLICE    10
 
 
@@ -26,6 +26,6 @@
 #define     SERVO_D_PIN             GET_PIN(D, 1)
 
 extern rt_uint8_t key;
-
+extern rt_uint8_t servo_key;
 
 #endif

@@ -11,7 +11,7 @@
 
 
 #define     GUN_THREAD_STACK_SIZE   256
-#define     GUN_THREAD_PRIORITY     11
+#define     GUN_THREAD_PRIORITY     5
 #define     GUN_THREAD_TIMESLICE    10
 
 

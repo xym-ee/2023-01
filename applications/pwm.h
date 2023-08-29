@@ -25,9 +25,9 @@
 
 
 /* pwm电机控制线程 */
-#define SERVO_PWM_PRIORITY         10
+#define SERVO_PWM_PRIORITY         4
 #define SERVO_PWM_STACK_SIZE       1024
-#define SERVO_PWM_TIMESLICE        5
+#define SERVO_PWM_TIMESLICE        10
 
 extern rt_int32_t yaw_pwm;
 extern rt_int32_t pitch_pwm;

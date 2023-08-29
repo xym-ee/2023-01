@@ -1,5 +1,5 @@
 #include "pwm.h"
-
+#include "key.h"
 
 rt_int32_t yaw_pwm = 1500000;
 rt_int32_t pitch_pwm = 1500000;
@@ -23,6 +23,16 @@ static void servo_pwm_thread_entry(void *parameter)
     
     while (1)
     {
+        switch(servo_key)
+        {
+            case 1: yaw_pwm+=100000; rt_kprintf("1\n"); servo_key = 0; break;
+            case 2: yaw_pwm-=100000; rt_kprintf("2\n"); servo_key = 0; break;
+            case 3: pitch_pwm+=100000; rt_kprintf("3\n"); servo_key = 0; break;
+            case 4: pitch_pwm-=100000; rt_kprintf("4\n"); servo_key = 0; break;
+            default:;   
+        
+        }
+        
         /*  限位 */
         if (yaw_pwm > UP_LIMIT)
             yaw_pwm = UP_LIMIT;
@@ -37,6 +47,8 @@ static void servo_pwm_thread_entry(void *parameter)
         /* PWM 信号输出 */
         rt_pwm_set(pwm_dev, PWM_SERVO_YAW, 20000000, yaw_pwm);   			
         rt_pwm_set(pwm_dev, PWM_SERVO_PITCH, 20000000, pitch_pwm);
+        
+        //rt_kprintf("%d %d\n",yaw_pwm, pitch_pwm);
 
         rt_thread_mdelay(20);
     }

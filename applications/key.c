@@ -104,7 +104,6 @@ uint8_t read_btn_servo_l(void)
 
 void btn_servo_l_down_cb(void *btn)
 {
-    yaw_pwm += 100000;
     servo_key = 1;
     rt_kprintf("SERVO_L_PIN once press\n");
 }
@@ -118,7 +117,6 @@ uint8_t read_btn_servo_r(void)
 
 void btn_servo_r_down_cb(void *btn)
 {
-    yaw_pwm -= 100000;
     servo_key = 2;
     rt_kprintf("SERVO_R_PIN once press\n");
 }
@@ -132,8 +130,6 @@ uint8_t read_btn_servo_u(void)
 
 void btn_servo_u_down_cb(void *btn)
 {
-    pitch_pwm += 100000;
-
     servo_key = 3;
     rt_kprintf("SERVO_U_PIN once press\n");
 }
@@ -147,7 +143,6 @@ uint8_t read_btn_servo_d(void)
 
 void btn_servo_d_down_cb(void *btn)
 {
-    pitch_pwm -= 100000;
     servo_key = 4;
     rt_kprintf("SERVO_D_PIN once press\n");
 }
