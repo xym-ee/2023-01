@@ -7,8 +7,7 @@
 
 static void oled_thread_entry(void *parameter)
 {
-    rt_thread_mdelay(1000);
-    //ssd1306_Init();
+    ssd1306_Init();
     ssd1306_Fill(Black);
     ssd1306_SetCursor(2, 0);
     ssd1306_WriteString("V:   . ", Font_16x26, White);
@@ -42,8 +41,8 @@ static void oled_thread_entry(void *parameter)
         {
             rt_sprintf(txt, "  AUTO");
         }
-        ssd1306_SetCursor(2 + 5*16, 26);
-        ssd1306_WriteString(txt, Font_16x26, White);
+        ssd1306_SetCursor(2 + 5*11, 26);
+        ssd1306_WriteString(txt, Font_11x18, White);
         
         ssd1306_UpdateScreen();
 

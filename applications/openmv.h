@@ -11,7 +11,7 @@
 #include <board.h>
 
 
-#define OPENMV_UART       "uart2"
+#define OPENMV_UART       "uart3"
 
 
 #define OPENMV_THREAD_PRIORITY         2

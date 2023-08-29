@@ -2,7 +2,7 @@
 <project>
     <fileVersion>3</fileVersion>
     <configuration>
-        <name>rt-thread</name>
+        <name>rtthread</name>
         <toolchain>
             <name>ARM</name>
         </toolchain>
@@ -66,7 +66,7 @@
                 </option>
                 <option>
                     <name>OGLastSavedByProductVersion</name>
-                    <state>8.11.3.13977</state>
+                    <state>8.20.1.14181</state>
                 </option>
                 <option>
                     <name>GeneralEnableMisra</name>
@@ -78,7 +78,7 @@
                 </option>
                 <option>
                     <name>OGChipSelectEditMenu</name>
-                    <state>STM32F103RB	ST STM32F103RB</state>
+                    <state>STM32F407VG	ST STM32F407VG</state>
                 </option>
                 <option>
                     <name>GenLowLevelInterface</name>
@@ -116,8 +116,8 @@
                 </option>
                 <option>
                     <name>GBECoreSlave</name>
-                    <version>25</version>
-                    <state>38</state>
+                    <version>26</version>
+                    <state>39</state>
                 </option>
                 <option>
                     <name>OGUseCmsis</name>
@@ -133,22 +133,22 @@
                 </option>
                 <option>
                     <name>CoreVariant</name>
-                    <version>25</version>
-                    <state>38</state>
+                    <version>26</version>
+                    <state>39</state>
                 </option>
                 <option>
                     <name>GFPUDeviceSlave</name>
-                    <state>STM32F103RB	ST STM32F103RB</state>
+                    <state>STM32F407VG	ST STM32F407VG</state>
                 </option>
                 <option>
                     <name>FPU2</name>
                     <version>0</version>
-                    <state>0</state>
+                    <state>4</state>
                 </option>
                 <option>
                     <name>NrRegs</name>
                     <version>0</version>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>NEON</name>
@@ -156,8 +156,8 @@
                 </option>
                 <option>
                     <name>GFPUCoreSlave2</name>
-                    <version>25</version>
-                    <state>38</state>
+                    <version>26</version>
+                    <state>39</state>
                 </option>
                 <option>
                     <name>OGCMSISPackSelectDevice</name>
@@ -198,7 +198,7 @@
                 </option>
                 <option>
                     <name>DSPExtension</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
             </data>
         </settings>
@@ -691,7 +691,7 @@
                 </option>
                 <option>
                     <name>IlinkOutputFile</name>
-                    <state>project.out</state>
+                    <state>rtthread.out</state>
                 </option>
                 <option>
                     <name>IlinkDebugInfoEnable</name>
@@ -1080,7 +1080,7 @@
                 </option>
                 <option>
                     <name>OGLastSavedByProductVersion</name>
-                    <state>8.11.3.13977</state>
+                    <state>8.20.1.14181</state>
                 </option>
                 <option>
                     <name>GeneralEnableMisra</name>
@@ -1130,7 +1130,7 @@
                 </option>
                 <option>
                     <name>GBECoreSlave</name>
-                    <version>25</version>
+                    <version>26</version>
                     <state>1</state>
                 </option>
                 <option>
@@ -1147,7 +1147,7 @@
                 </option>
                 <option>
                     <name>CoreVariant</name>
-                    <version>25</version>
+                    <version>26</version>
                     <state>0</state>
                 </option>
                 <option>
@@ -1170,7 +1170,7 @@
                 </option>
                 <option>
                     <name>GFPUCoreSlave2</name>
-                    <version>25</version>
+                    <version>26</version>
                     <state>0</state>
                 </option>
                 <option>
@@ -1229,7 +1229,6 @@
                 </option>
                 <option>
                     <name>CCDefines</name>
-                    <state></state>
                 </option>
                 <option>
                     <name>CCPreprocFile</name>

@@ -21,6 +21,7 @@
 /* kservice optimization */
 
 #define RT_DEBUG
+#define RT_DEBUG_COLOR
 
 /* Inter-Thread communication */
 
@@ -47,7 +48,7 @@
 #define ARCH_ARM
 #define RT_USING_CPU_FFS
 #define ARCH_ARM_CORTEX_M
-#define ARCH_ARM_CORTEX_M3
+#define ARCH_ARM_CORTEX_M4
 
 /* RT-Thread Components */
 
@@ -80,6 +81,7 @@
 #define RT_USING_I2C_BITOPS
 #define RT_USING_PIN
 #define RT_USING_ADC
+#define RT_USING_PWM
 
 /* Using USB */
 
@@ -101,6 +103,9 @@
 
 
 /* Utilities */
+
+
+/* RT-Thread Utestcases */
 
 
 /* RT-Thread online packages */
@@ -177,9 +182,8 @@
 /* Kendryte SDK */
 
 #define PKG_USING_SSD1306
-#define PKG_USING_SSD1306_I2C_ADDRESS 0x3c
+#define PKG_USING_SSD1306_I2C_ADDRESS 0x3C
 #define PKG_USING_SSD1306_I2C_BUS_NAME "i2c1"
-#define PKG_USING_SSD1306_SAMPLE
 #define PKG_USING_SSD1306_LATEST_VERSION
 
 /* AI packages */
@@ -198,27 +202,28 @@
 /* entertainment: terminal games and other interesting software packages */
 
 #define SOC_FAMILY_STM32
-#define SOC_SERIES_STM32F1
+#define SOC_SERIES_STM32F4
 
 /* Hardware Drivers Config */
 
-#define SOC_STM32F103C8
+#define SOC_STM32F407VG
 
 /* Onboard Peripheral Drivers */
-
-#define BSP_USING_USB_TO_USART
 
 /* On-chip Peripheral Drivers */
 
 #define BSP_USING_GPIO
 #define BSP_USING_UART
 #define BSP_USING_UART1
-#define BSP_USING_UART3
 #define BSP_USING_I2C1
 #define BSP_I2C1_SCL_PIN 24
 #define BSP_I2C1_SDA_PIN 25
 #define BSP_USING_ADC
 #define BSP_USING_ADC1
+#define BSP_USING_PWM
+#define BSP_USING_PWM3
+#define BSP_USING_PWM3_CH1
+#define BSP_USING_PWM3_CH2
 
 /* Board extended module Drivers */
 

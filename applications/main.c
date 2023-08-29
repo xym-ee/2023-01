@@ -1,29 +1,25 @@
+/*
+ * Copyright (c) 2006-2021, RT-Thread Development Team
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Change Logs:
+ * Date           Author       Notes
+ * 2018-11-06     misonyo   first version
+ */
+
 #include <rtthread.h>
 #include <rtdevice.h>
 #include <board.h>
 
 
-#include "key.h"
-#include "orangepi.h"
 
 #define CHARGE_PIN      GET_PIN(B, 0)
 #define FIRE_PIN        GET_PIN(B, 1)
 
 
-
-/* 680K 10K    read*33/4096*69 */
-
-#include "adc.h"
-
 int main(void)
 {
-    rt_pin_mode(CHARGE_PIN, PIN_MODE_OUTPUT_OD);
-    rt_pin_mode(FIRE_PIN, PIN_MODE_OUTPUT_OD);
-    
-    rt_pin_write(CHARGE_PIN, PIN_HIGH);
-    rt_pin_write(FIRE_PIN, PIN_HIGH);
-    
- 
     while(1)
     {
         
@@ -59,8 +55,5 @@ int main(void)
         rt_thread_mdelay(1000);    
     }
 }
-
-
-
 
 

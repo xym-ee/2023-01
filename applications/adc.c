@@ -1,8 +1,8 @@
 #include "adc.h"
-
+#include "railgun.h"
 
 #define ADC_DEV_NAME        "adc1"      /* ADC 设备名称 */
-#define ADC_DEV_CHANNEL     1           /* ADC 通道 */
+#define ADC_DEV_CHANNEL     5                            /* ADC 通道 */
 #define REFER_VOLTAGE       33          /* 参考电压 3.3V,数据精度乘以10保留1位小数*/
 #define CONVERT_BITS        (1 << 12)   /* 转换位数为12位 */
 
@@ -59,6 +59,12 @@ static void adc_thread_entry(void *parameter)
         bubble_sort(value, 7);
         
         voltage = value[3] * REFER_VOLTAGE * 69 / CONVERT_BITS ;
+        
+        /* 电容电压过高，强制停止充电 */
+        if (voltage > 1200)
+        {
+            rt_pin_write(CHARGE_PIN, PIN_HIGH);
+        }
 
         rt_thread_mdelay(10);
     }
