@@ -93,7 +93,6 @@ void btn_red_double_cb(void *btn)
 }
 
 /*--------------------------------- 舵机控制按键处理函数 --------------------------- */
-rt_uint8_t servo_key = 0;
 
 Button_t btn_servo_l, btn_servo_r, btn_servo_u, btn_servo_d;
 
@@ -104,7 +103,7 @@ uint8_t read_btn_servo_l(void)
 
 void btn_servo_l_down_cb(void *btn)
 {
-    servo_key = 1;
+    status.pts_control = LEFT;
     rt_kprintf("SERVO_L_PIN once press\n");
 }
 
@@ -117,7 +116,7 @@ uint8_t read_btn_servo_r(void)
 
 void btn_servo_r_down_cb(void *btn)
 {
-    servo_key = 2;
+    status.pts_control = RIGHT;
     rt_kprintf("SERVO_R_PIN once press\n");
 }
 
@@ -130,7 +129,7 @@ uint8_t read_btn_servo_u(void)
 
 void btn_servo_u_down_cb(void *btn)
 {
-    servo_key = 3;
+    status.pts_control = UP;
     rt_kprintf("SERVO_U_PIN once press\n");
 }
 
@@ -143,7 +142,7 @@ uint8_t read_btn_servo_d(void)
 
 void btn_servo_d_down_cb(void *btn)
 {
-    servo_key = 4;
+    status.pts_control = DOWN;
     rt_kprintf("SERVO_D_PIN once press\n");
 }
 

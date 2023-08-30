@@ -1,8 +1,6 @@
 #include "pwm.h"
 #include "key.h"
-
-rt_int32_t yaw_pwm = 1500000;
-rt_int32_t pitch_pwm = 1500000;
+#include "status.h"
 
 
 /*----------------------   pwm舵机控制线程   --------------------------*/
@@ -21,32 +19,24 @@ static void servo_pwm_thread_entry(void *parameter)
     rt_pwm_enable(pwm_dev, PWM_SERVO_YAW);
     rt_pwm_enable(pwm_dev, PWM_SERVO_PITCH);
     
+    rt_int32_t yaw_control = 0;
+    rt_int32_t pit_control = 0;
+
+    
     while (1)
     {
-        switch(servo_key)
+        switch (status.pts_control)
         {
-            case 1: yaw_pwm+=100000; rt_kprintf("1\n"); servo_key = 0; break;
-            case 2: yaw_pwm-=100000; rt_kprintf("2\n"); servo_key = 0; break;
-            case 3: pitch_pwm+=100000; rt_kprintf("3\n"); servo_key = 0; break;
-            case 4: pitch_pwm-=100000; rt_kprintf("4\n"); servo_key = 0; break;
-            default:;   
-        
+            case LEFT   : status.pts_control = NONE; yaw_control += 100000; break;
+            case RIGHT  : status.pts_control = NONE; yaw_control -= 100000; break;
+            case UP     : status.pts_control = NONE; pit_control += 100000; break;
+            case DOWN   : status.pts_control = NONE; pit_control -= 100000; break;
+            default : ;           
         }
-        
-        /*  限位 */
-        if (yaw_pwm > UP_LIMIT)
-            yaw_pwm = UP_LIMIT;
-        if (yaw_pwm < DOWN_LIMIT)
-            yaw_pwm = DOWN_LIMIT;
 
-        if (pitch_pwm > UP_LIMIT)
-            pitch_pwm = UP_LIMIT;
-        if (pitch_pwm < DOWN_LIMIT)
-            pitch_pwm = DOWN_LIMIT;
-        
         /* PWM 信号输出 */
-        rt_pwm_set(pwm_dev, PWM_SERVO_YAW, 20000000, yaw_pwm);   			
-        rt_pwm_set(pwm_dev, PWM_SERVO_PITCH, 20000000, pitch_pwm);
+        rt_pwm_set(pwm_dev, PWM_SERVO_YAW, 20000000,   1500000+yaw_control);   			
+        rt_pwm_set(pwm_dev, PWM_SERVO_PITCH, 20000000, 1500000+pit_control); 
         
         //rt_kprintf("%d %d\n",yaw_pwm, pitch_pwm);
 
