@@ -12,16 +12,39 @@
 #include <rtdevice.h>
 #include <board.h>
 
+#include "adc.h"
+
+#define BEEP_PIN    GET_PIN(E, 2)
 
 
-#define CHARGE_PIN      GET_PIN(B, 0)
-#define FIRE_PIN        GET_PIN(B, 1)
-
-
+/* 电压过高，蜂鸣器报警 */
 int main(void)
 {
+    rt_pin_mode(BEEP_PIN, PIN_MODE_OUTPUT);
+    rt_pin_write(BEEP_PIN, PIN_HIGH);
+    
     while(1)
     {
+        if (voltage > CHATGE_LIMIT)
+        {
+            rt_pin_write(BEEP_PIN, PIN_LOW);
+            rt_thread_mdelay(300);
+            rt_pin_write(BEEP_PIN, PIN_HIGH);
+            rt_thread_mdelay(300);
+            
+            rt_pin_write(BEEP_PIN, PIN_LOW);
+            rt_thread_mdelay(300);
+            rt_pin_write(BEEP_PIN, PIN_HIGH);
+            rt_thread_mdelay(300);
+            
+            rt_pin_write(BEEP_PIN, PIN_LOW);
+            rt_thread_mdelay(300);
+            rt_pin_write(BEEP_PIN, PIN_HIGH);
+            rt_thread_mdelay(300);
+        }
+        
+        
+        
         
 //        /* 充电启动 */
 //        if ( key.red ==0 )
@@ -49,8 +72,7 @@ int main(void)
 //            rt_pin_write(FIRE_PIN, PIN_HIGH);
 //        }
 
-        
-        //rt_kprintf("%d\n", voltage);
+
         
         rt_thread_mdelay(1000);    
     }

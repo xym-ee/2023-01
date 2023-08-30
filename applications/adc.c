@@ -61,7 +61,7 @@ static void adc_thread_entry(void *parameter)
         voltage = value[3] * REFER_VOLTAGE * 69 / CONVERT_BITS ;
         
         /* 电容电压过高，强制停止充电 */
-        if (voltage > 1200)
+        if (voltage > CHATGE_LIMIT)
         {
             rt_pin_write(CHARGE_PIN, PIN_HIGH);
         }

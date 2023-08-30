@@ -105,9 +105,6 @@
 /* Utilities */
 
 
-/* RT-Thread Utestcases */
-
-
 /* RT-Thread online packages */
 
 /* IoT - internet of things */
@@ -206,7 +203,7 @@
 
 /* Hardware Drivers Config */
 
-#define SOC_STM32F407VG
+#define SOC_STM32F429VE
 
 /* Onboard Peripheral Drivers */
 
@@ -216,7 +213,7 @@
 #define BSP_USING_UART
 #define BSP_USING_UART1
 #define BSP_USING_I2C1
-#define BSP_I2C1_SCL_PIN 24
+#define BSP_I2C1_SCL_PIN 23
 #define BSP_I2C1_SDA_PIN 25
 #define BSP_USING_ADC
 #define BSP_USING_ADC1

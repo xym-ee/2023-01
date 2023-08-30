@@ -20,7 +20,7 @@
 extern "C" {
 #endif
 
-#define STM32_SRAM_SIZE        (128)
+#define STM32_SRAM_SIZE        (192)
 #define STM32_SRAM_END         (0x20000000 + STM32_SRAM_SIZE * 1024)
 
 #if defined(__ARMCC_VERSION)

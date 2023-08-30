@@ -2,7 +2,7 @@
 #include "button.h"
 
 #include "status.h"
-//#include "beep.h"
+
 #include "pwm.h"
 #include "railgun.h"
 
@@ -150,19 +150,16 @@ void btn_servo_d_down_cb(void *btn)
 
 static void key_thread_entry(void *parameter)
 {
-    rt_pin_mode(KEY_OUTPUT_PIN, PIN_MODE_OUTPUT_OD);
     rt_pin_mode(KEY_GREEN_PIN, PIN_MODE_INPUT_PULLUP);
     rt_pin_mode(KEY_YELLOW1_PIN, PIN_MODE_INPUT_PULLUP);
     rt_pin_mode(KEY_YELLOW2_PIN, PIN_MODE_INPUT_PULLUP);
     rt_pin_mode(KEY_RED_PIN, PIN_MODE_INPUT_PULLUP);
-    rt_pin_write(KEY_OUTPUT_PIN, PIN_LOW);
-    
-    rt_pin_mode(SERVO_OUTPUT_PIN, PIN_MODE_OUTPUT_OD);
+
+
     rt_pin_mode(SERVO_L_PIN, PIN_MODE_INPUT_PULLUP);
     rt_pin_mode(SERVO_R_PIN, PIN_MODE_INPUT_PULLUP);
     rt_pin_mode(SERVO_U_PIN, PIN_MODE_INPUT_PULLUP);
     rt_pin_mode(SERVO_D_PIN, PIN_MODE_INPUT_PULLUP);
-    rt_pin_write(SERVO_OUTPUT_PIN, PIN_LOW);
 
     
     Button_Create("btn_green", &btn_green, read_btn_green, PIN_LOW);

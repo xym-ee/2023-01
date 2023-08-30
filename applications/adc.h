@@ -13,6 +13,8 @@
 #define     ADC_THREAD_PRIORITY     2
 #define     ADC_THREAD_TIMESLICE    10
 
+#define CHATGE_LIMIT        800
+
 
 extern rt_uint32_t voltage;
 

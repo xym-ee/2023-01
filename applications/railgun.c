@@ -6,6 +6,7 @@ static void railgun_thread_entry(void *parameter)
 {
     while (1)
     {
+        /* 发射按键检测 */
         if (key == 4)
         {
             key = 0;
@@ -15,10 +16,7 @@ static void railgun_thread_entry(void *parameter)
             rt_thread_mdelay(500);
             
             rt_pin_write(FIRE_PIN, PIN_HIGH);
-        
         }
-        
-
         
         rt_thread_mdelay(100);
     }

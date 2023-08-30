@@ -6,8 +6,8 @@
 #include <board.h>
 
 
-#define CHARGE_PIN      GET_PIN(B, 0)
-#define FIRE_PIN        GET_PIN(B, 1)
+#define CHARGE_PIN      GET_PIN(C, 4)
+#define FIRE_PIN        GET_PIN(C, 5)
 
 
 #define     GUN_THREAD_STACK_SIZE   256
