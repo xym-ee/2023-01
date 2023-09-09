@@ -25,7 +25,7 @@ int main(void)
     
     while(1)
     {
-        if (voltage > CHATGE_LIMIT)
+        if (voltage > CHATGE_LIMIT - 200)
         {
             rt_pin_write(BEEP_PIN, PIN_LOW);
             rt_thread_mdelay(300);
@@ -42,37 +42,6 @@ int main(void)
             rt_pin_write(BEEP_PIN, PIN_HIGH);
             rt_thread_mdelay(300);
         }
-        
-        
-        
-        
-//        /* 充电启动 */
-//        if ( key.red ==0 )
-//        {
-//            rt_pin_write(CHARGE_PIN, PIN_LOW);
-//            rt_kprintf("start_charge\n");
-//        }
-//        
-//        /* 充电停止 */
-//        if ( key.green == 0)
-//        {
-//            rt_pin_write(CHARGE_PIN, PIN_HIGH);
-//            rt_kprintf("stop_charge\n");
-//        }
-//        
-//        /* 发射触发 */
-//        if ( key.yellow2 == 0 )
-//        {
-//            rt_pin_write(FIRE_PIN, PIN_LOW);
-//            
-//            rt_kprintf("fire\n");
-//            
-//            rt_thread_mdelay(500);
-//        
-//            rt_pin_write(FIRE_PIN, PIN_HIGH);
-//        }
-
-
         
         rt_thread_mdelay(1000);    
     }

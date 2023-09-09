@@ -13,7 +13,8 @@
 #define     ADC_THREAD_PRIORITY     2
 #define     ADC_THREAD_TIMESLICE    10
 
-#define CHATGE_LIMIT        800
+/* 充电电压限制 */
+#define CHATGE_LIMIT        1200
 
 
 extern rt_uint32_t voltage;

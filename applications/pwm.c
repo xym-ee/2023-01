@@ -1,7 +1,7 @@
 #include "pwm.h"
 #include "key.h"
 #include "status.h"
-
+#include "autocontrol.h"
 
 /*----------------------   pwm舵机控制线程   --------------------------*/
 static rt_thread_t servo_pwm_thread = RT_NULL;
@@ -27,12 +27,20 @@ static void servo_pwm_thread_entry(void *parameter)
     {
         switch (status.pts_control)
         {
-            case LEFT   : status.pts_control = NONE; yaw_control += 50000; break;
-            case RIGHT  : status.pts_control = NONE; yaw_control -= 50000; break;
-            case UP     : status.pts_control = NONE; pit_control += 50000; break;
-            case DOWN   : status.pts_control = NONE; pit_control -= 50000; break;
+            case LEFT   : status.pts_control = NONE; yaw_control += 10000; break;
+            case RIGHT  : status.pts_control = NONE; yaw_control -= 10000; break;
+            case UP     : status.pts_control = NONE; pit_control -= 10000; break;
+            case DOWN   : status.pts_control = NONE; pit_control += 10000; break;
             default : ;           
         }
+        
+        if (status.control_mode == AUTO)
+        {
+            yaw_control = yaw_auto_control;
+            pit_control = pit_auto_control;
+        }
+        
+        
 
         /* PWM 信号输出 */
         rt_pwm_set(pwm_dev, PWM_SERVO_YAW,   20000000, 1500000 + yaw_control);   			

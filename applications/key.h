@@ -11,7 +11,7 @@
 #define     KEY_THREAD_TIMESLICE    10
 
 
-//上拉输入，按键1脚接地
+//上拉输入，
 #define     KEY_GREEN_PIN           GET_PIN(E, 3)
 #define     KEY_YELLOW1_PIN         GET_PIN(E, 5)
 #define     KEY_YELLOW2_PIN         GET_PIN(C, 13)
