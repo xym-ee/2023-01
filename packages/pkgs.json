@@ -1,0 +1,12 @@
+[
+ {
+  "path": "/packages/peripherals/button", 
+  "ver": "v1.0.1", 
+  "name": "BUTTON"
+ }, 
+ {
+  "path": "/packages/peripherals/ssd1306", 
+  "ver": "latest", 
+  "name": "SSD1306"
+ }
+]
